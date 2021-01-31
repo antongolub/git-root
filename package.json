@@ -1,5 +1,5 @@
 {
-  "name": "git-dir",
+  "name": "@antongolub/git-dir",
   "version": "1.0.0",
   "private": false,
   "publishConfig": {

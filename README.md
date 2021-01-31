@@ -1,6 +1,7 @@
-# git-dir
+# @antongolub/git-dir
 Find the closest .git containing path.
 
+[![CI](https://github.com/antongolub/git-dir/workflows/CI/badge.svg)](https://github.com/antongolub/git-dir/actions)
 [![David](https://img.shields.io/david/dev/antongolub/git-dir?label=deps)](https://david-dm.org/antongolub/git-dir?type=dev)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/maintainability)](https://codeclimate.com/github/antongolub/git-up/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/test_coverage)](https://codeclimate.com/github/antongolub/git-up/test_coverage)
@@ -15,12 +16,12 @@ Inspired by [pkg-dir](https://github.com/sindresorhus/pkg-dir).
 
 ## Install
 ```shell
-yarn add git-dir
+yarn add @antongolub/git-dir
 ```
 
 ## Usage
 ```ts
-import { gitDir } from 'git-dir'
+import { gitDir } from '@antongolub/git-dir'
 
 // async
 const gitRoot1 = await gitDir('/optional/cwd/path/')
