@@ -1,7 +1,37 @@
-# blank-ts-repo
-Template repository for TS OSS projects
+# git-dir
+Find the closest .git containing path.
 
-[![Build Status](https://travis-ci.com/qiwi/blank-ts-repo.svg?branch=master)](https://travis-ci.com/qiwi/blank-ts-repo)
-[![David](https://img.shields.io/david/dev/qiwi/blank-ts-repo?label=deps)](https://david-dm.org/qiwi/blank-ts-repo?type=dev)
-[![Maintainability](https://api.codeclimate.com/v1/badges/0669264f60889955c31c/maintainability)](https://codeclimate.com/github/antongolub/blank-ts-repo/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/0669264f60889955c31c/test_coverage)](https://codeclimate.com/github/antongolub/blank-ts-repo/test_coverage)
+[![David](https://img.shields.io/david/dev/antongolub/git-dir?label=deps)](https://david-dm.org/antongolub/git-dir?type=dev)
+[![Maintainability](https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/maintainability)](https://codeclimate.com/github/antongolub/git-up/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/test_coverage)](https://codeclimate.com/github/antongolub/git-up/test_coverage)
+
+## Motivation
+It's known for certain the best way to find git root:
+```shell
+git rev-parse --show-toplevel
+```
+It makes sense to use this tool only if `git` executable or `child_process.exec` are not available for some (security?) reasons.
+Inspired by [pkg-dir](https://github.com/sindresorhus/pkg-dir).
+
+## Install
+```shell
+yarn add git-dir
+```
+
+## Usage
+```ts
+import { gitDir } from 'git-dir'
+
+// async
+const gitRoot1 = await gitDir('/optional/cwd/path/')
+
+// sync
+const gitRoot2 = gitDir('/defaults/to/process/cwd/', true)
+```
+
+## Alternatives
+
+* [find-git-root](https://github.com/banyudu/find-git-root)
+* [git-root](https://www.npmjs.com/package/git-root)
+
+

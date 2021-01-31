@@ -1,11 +1,11 @@
 {
-  "name": "blank-ts-repo",
+  "name": "git-dir",
   "version": "0.0.0",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "description": "Blank TS repo",
+  "description": "Find the closest .git containing path",
   "source": "src/main/ts/index.ts",
   "main": "target/bundle/blank-ts-repo.js",
   "module": "target/bundle/blank-ts-repo.mjs",
@@ -40,7 +40,9 @@
     "postupdate": "yarn && yarn test:deps && yarn build && yarn test"
   },
   "dependencies": {
-    "tslib": "^2.1.0"
+    "tslib": "^2.1.0",
+    "@qiwi/substrate": "^1.20.0",
+    "find-up": "^5.0.0"
   },
   "devDependencies": {
     "@qiwi/libdefkit": "^2.1.5",
@@ -61,7 +63,9 @@
     "terser": "^5.5.1",
     "ts-jest": "^26.4.4",
     "typedoc": "^0.20.16",
-    "typescript": "4.1.3"
+    "typescript": "4.1.3",
+    "tempy": "^1.0.0",
+    "fs-extra": "^9.1.0"
   },
   "repository": {
     "type": "git",
