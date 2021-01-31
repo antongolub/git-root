@@ -2,6 +2,7 @@ import { Extends, ICallable } from '@qiwi/substrate'
 import findUp, { Match } from 'find-up'
 import fs from 'fs'
 import path from 'path'
+import util from 'util'
 
 export const isPromiseLike = (value: any): boolean =>
   typeof (value as any)?.then === 'function'
@@ -22,6 +23,7 @@ export const gitDir = <S>(
   sync?: S,
 ): Extends<S, boolean, Match, Promise<Match>> => {
   const exec = sync ? findUp.sync : findUp
+  const readFile = sync ? fs.readFileSync : util.promisify(fs.readFile)
 
   return exec(
     (directory) => {
@@ -32,21 +34,21 @@ export const gitDir = <S>(
           return
         }
 
-        const isDirectory = fs.lstatSync(gitDir).isDirectory()
-        if (isDirectory) {
+        if (fs.lstatSync(gitDir).isDirectory()) {
           return directory
         }
 
-        const gitRef = fs.readFileSync(gitDir, { encoding: 'utf-8' })
-        const match = /^gitdir: (.*)\.git\s*$/.exec(gitRef)
+        return effect(readFile(gitDir, { encoding: 'utf-8' }), (gitRef) => {
+          const match = /^gitdir: (.*)\.git\s*$/.exec(gitRef)
 
-        return match ? match[1] : undefined
+          return match ? match[1] : undefined
+        })
       })
     },
     { type: 'directory', cwd },
   ) as Extends<S, boolean, Match, Promise<Match>>
 }
 
-const gitDirSync = (cwd?: string): Match => gitDir(cwd, true)
+export const gitDirSync = (cwd?: string): Match => gitDir(cwd, true)
 
 gitDir.sync = gitDirSync
