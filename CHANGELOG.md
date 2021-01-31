@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/antongolub/git-dir/compare/v1.2.0...v1.3.0) (2021-01-31)
+
+
+### Features
+
+* export gitDirSync ([ca2b3ad](https://github.com/antongolub/git-dir/commit/ca2b3addfb39a32e1012a0f94c7d34dae8869a39))
+
 # [1.2.0](https://github.com/antongolub/git-dir/compare/v1.1.0...v1.2.0) (2021-01-31)
 
 
