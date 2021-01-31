@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>git-dir | git-dir</title>
+	<title>gitDir | git-dir</title>
 	<meta name="description" content="Documentation for git-dir">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -2652,7 +2652,7 @@ img {
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="index.html">git-dir</a></strong>
+					<strong><a href="../index.html">git-dir</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -2682,96 +2682,21 @@ img {
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-variable">
-			<a href="modules.html#gitdir" class="tsd-kind-icon">git<wbr>Dir</a>
-		</li>
-		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="modules.html#effect" class="tsd-kind-icon">effect</a>
-		</li>
-		<li class=" tsd-kind-function">
-			<a href="modules.html#ispromiselike" class="tsd-kind-icon">is<wbr>Promise<wbr>Like</a>
+		<li class=" tsd-kind-variable tsd-parent-kind-namespace">
+			<a href="gitdir.html#sync" class="tsd-kind-icon">sync</a>
 		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<div class="tsd-panel tsd-typography">
-			<a href="#antongolubgit-dir" id="antongolubgit-dir" style="color: inherit; text-decoration: none;">
-				<h1>@antongolub/git-dir</h1>
-			</a>
-			<p>Find the closest .git containing path.</p>
-			<p><a href="https://github.com/antongolub/git-dir/actions"><img src="https://github.com/antongolub/git-dir/workflows/CI/badge.svg" alt="CI"></a>
-				<a href="https://david-dm.org/antongolub/git-dir?type=dev"><img src="https://img.shields.io/david/dev/antongolub/git-dir?label=deps" alt="David"></a>
-				<a href="https://codeclimate.com/github/antongolub/git-up/maintainability"><img src="https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/maintainability" alt="Maintainability"></a>
-			<a href="https://codeclimate.com/github/antongolub/git-up/test_coverage"><img src="https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/test_coverage" alt="Test Coverage"></a></p>
-			<a href="#motivation" id="motivation" style="color: inherit; text-decoration: none;">
-				<h2>Motivation</h2>
-			</a>
-			<p>It&#39;s known for certain the best way to find git root:</p>
-			<pre><code class="language-shell"><span style="color: #000000">git rev-parse --show-toplevel</span>
-</code></pre>
-			<p>It makes sense to use this tool only if <code>git</code> executable or <code>child_process.exec</code> are not available for some (security?) reasons.
-			Inspired by <a href="https://github.com/sindresorhus/pkg-dir">pkg-dir</a>.</p>
-			<a href="#features" id="features" style="color: inherit; text-decoration: none;">
-				<h2>Features</h2>
-			</a>
-			<ul>
-				<li>Searches for <code>.git</code> up the dir tree</li>
-				<li>Handles <code>gitdir: &lt;/some/path.git&gt;</code> redirects </li>
-				<li>TS and Flow typings out of box</li>
-				<li>Sync/async methods</li>
-			</ul>
-			<a href="#install" id="install" style="color: inherit; text-decoration: none;">
-				<h2>Install</h2>
-			</a>
-			<pre><code class="language-shell"><span style="color: #000000">yarn add @antongolub/git-dir</span>
-</code></pre>
-			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-				<h2>Usage</h2>
-			</a>
-			<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">gitDir</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@antongolub/git-dir&#039;</span>
-
-<span style="color: #008000">// async</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">gitRoot1</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">gitDir</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/optional/cwd/path/&#039;</span><span style="color: #000000">)</span>
-
-<span style="color: #008000">// sync</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">gitRoot2</span><span style="color: #000000"> = </span><span style="color: #795E26">gitDir</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/defaults/to/process/cwd/&#039;</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">)</span>
-
-<span style="color: #008000">// sync too</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">gitRoot3</span><span style="color: #000000"> = </span><span style="color: #001080">gitDir</span><span style="color: #000000">.</span><span style="color: #795E26">sync</span><span style="color: #000000">()</span>
-</code></pre>
-			<a href="#alternatives" id="alternatives" style="color: inherit; text-decoration: none;">
-				<h2>Alternatives</h2>
-			</a>
-			<ul>
-				<li><a href="https://github.com/banyudu/find-git-root">find-git-root</a></li>
-				<li><a href="https://github.com/JPeer264/node-git-root">git-root</a></li>
-				<li><a href="https://github.com/royriojas/git-toplevel">git-toplevel</a></li>
-				<li><a href="https://github.com/VishnuTSuresh/git-root-path">git-root-path</a></li>
-			</ul>
-		</div>
-		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
-						<h3>Namespaces</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-namespace"><a href="modules/gitdir.html" class="tsd-kind-icon">git<wbr>Dir</a></li>
-						</ul>
-					</section>
-					<section class="tsd-index-section ">
 						<h3>Variables</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-variable"><a href="modules.html#gitdir" class="tsd-kind-icon">git<wbr>Dir</a></li>
-						</ul>
-					</section>
-					<section class="tsd-index-section ">
-						<h3>Functions</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#effect" class="tsd-kind-icon">effect</a></li>
-							<li class="tsd-kind-function"><a href="modules.html#ispromiselike" class="tsd-kind-icon">is<wbr>Promise<wbr>Like</a></li>
+							<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="gitdir.html#sync" class="tsd-kind-icon">sync</a></li>
 						</ul>
 					</section>
 				</div>
@@ -2779,133 +2704,33 @@ img {
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Variables</h2>
-			<section class="tsd-panel tsd-member tsd-kind-variable">
-				<a name="gitdir" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> git<wbr>Dir</h3>
-				<div class="tsd-signature tsd-kind-icon">git<wbr>Dir<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>sync<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>cwd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Match</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></div>
+			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-namespace">
+				<a name="sync" class="tsd-anchor"></a>
+				<h3>sync</h3>
+				<div class="tsd-signature tsd-kind-icon">sync<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>cwd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Match</span></div>
 				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/antongolub/git-dir/blob/efd7f71/src/main/ts/index.ts#L20">index.ts:20</a></li>
-					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
 					<h4>Type declaration</h4>
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-has-type-parameter">
-								<li class="tsd-signature tsd-kind-icon">&lt;S&gt;<span class="tsd-signature-symbol">(</span>cwd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, sync<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Extends</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Match</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Match</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-namespace">
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>cwd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Match</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
-									<h4 class="tsd-type-parameters-title">Type parameters</h4>
-									<ul class="tsd-type-parameters">
-										<li>
-											<h4>S</h4>
-										</li>
-									</ul>
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
 											<h5><span class="tsd-flag ts-flagOptional">Optional</span> cwd: <span class="tsd-signature-type">string</span></h5>
 										</li>
-										<li>
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> sync: <span class="tsd-signature-type">S</span></h5>
-										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Extends</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Match</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Match</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-								</li>
-							</ul>
-						</li>
-						<li class="tsd-parameter">
-							<h5>sync<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>cwd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Match</span></h5>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter-signature">
-									<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>cwd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Match</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<h4 class="tsd-parameters-title">Parameters</h4>
-											<ul class="tsd-parameters">
-												<li>
-													<h5><span class="tsd-flag ts-flagOptional">Optional</span> cwd: <span class="tsd-signature-type">string</span></h5>
-												</li>
-											</ul>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Match</span></h4>
-										</li>
-									</ul>
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Match</span></h4>
 								</li>
 							</ul>
 						</li>
 					</ul>
 				</div>
-			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="effect" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> effect</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">effect&lt;V, C, R1, R2&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">V</span>, cb<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Extends</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R2</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/antongolub/git-dir/blob/efd7f71/src/main/ts/index.ts#L9">index.ts:9</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>V<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
-							</li>
-							<li>
-								<h4>C<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							</li>
-							<li>
-								<h4>R1 = <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReturnType</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							</li>
-							<li>
-								<h4>R2 = <span class="tsd-signature-type">ReturnType</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>value: <span class="tsd-signature-type">V</span></h5>
-							</li>
-							<li>
-								<h5>cb: <span class="tsd-signature-type">C</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Extends</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R2</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="ispromiselike" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>Promise<wbr>Like</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">is<wbr>Promise<wbr>Like<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/antongolub/git-dir/blob/efd7f71/src/main/ts/index.ts#L6">index.ts:6</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>value: <span class="tsd-signature-type">any</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-					</li>
-				</ul>
 			</section>
 		</section>
 		<footer>
