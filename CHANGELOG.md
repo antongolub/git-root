@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/antongolub/git-dir/compare/v1.0.0...v1.1.0) (2021-01-31)
+
+
+### Features
+
+* rename package ([4484e3f](https://github.com/antongolub/git-dir/commit/4484e3fe3c0c4979be450d090e7c1af282e5e232))
+
 # 1.0.0 (2021-01-31)
 
 
