@@ -52,3 +52,5 @@ export const gitRoot = <S>(
 export const gitRootSync = (cwd?: string): Match => gitRoot(cwd, true)
 
 gitRoot.sync = gitRootSync
+
+export default gitRoot
