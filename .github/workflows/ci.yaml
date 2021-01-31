@@ -43,6 +43,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn
       - run: yarn test
+      - name: Push coverage
+        if: matrix.node-version == '14'
+        uses: actions/upload-artifact@v2
+        with:
+          name: target
+          retention-days: 1
+          path: coverage
 
   release:
     name: Release
@@ -50,11 +57,11 @@ jobs:
     needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
+      - uses: actions/checkout@v1
       - name: Restore target
         uses: actions/download-artifact@v2
         with:
           name: target
-      - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 14
