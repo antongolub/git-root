@@ -1,5 +1,5 @@
 {
-  "name": "git-dir",
+  "name": "git-root",
   "out": "./docs",
   "exclude": ["src/test", "**/node_modules/**"],
   "externalPattern": ["**/node_modules/**"],

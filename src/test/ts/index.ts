@@ -2,18 +2,18 @@ import fs from 'fs-extra'
 import path from 'path'
 import tempy from 'tempy'
 
-import { gitDir, gitDirSync } from '../../main/ts'
+import { gitRoot, gitRootSync } from '../../main/ts'
 
-describe('gitDir', () => {
-  it('returns .git dir root', async () => {
+describe('gitRoot', () => {
+  it('returns .git root', async () => {
     const temp = tempy.directory()
     const inner = path.resolve(temp, 'foo/bar/baz')
 
     fs.mkdirpSync(inner)
     fs.mkdirpSync(path.resolve(temp, '.git'))
 
-    expect(await gitDir(inner)).toBe(temp)
-    expect(gitDirSync(inner)).toBe(temp)
+    expect(await gitRoot(inner)).toBe(temp)
+    expect(gitRootSync(inner)).toBe(temp)
   })
 
   it('handles `gitdir: ref` and returns target path if exists', async () => {
@@ -25,8 +25,8 @@ describe('gitDir', () => {
       encoding: 'utf8',
     })
 
-    expect(await gitDir(temp0)).toBe(temp1)
-    expect(gitDir.sync(temp0)).toBe(temp1)
+    expect(await gitRoot(temp0)).toBe(temp1)
+    expect(gitRoot.sync(temp0)).toBe(temp1)
   })
 
   it('returns undefined if `gitdir: ref` is unreachable', async () => {
@@ -35,8 +35,8 @@ describe('gitDir', () => {
 
     await fs.outputFile(path.join(temp, '.git'), data, { encoding: 'utf8' })
 
-    expect(await gitDir(temp)).toBeUndefined()
-    expect(gitDir.sync(temp)).toBeUndefined()
+    expect(await gitRoot(temp)).toBeUndefined()
+    expect(gitRoot.sync(temp)).toBeUndefined()
   })
 
   it('returns undefined if `gitdir: ref` is invalid', async () => {
@@ -45,7 +45,11 @@ describe('gitDir', () => {
 
     await fs.outputFile(path.join(temp, '.git'), data, { encoding: 'utf8' })
 
-    expect(await gitDir(temp)).toBeUndefined()
-    expect(gitDir.sync(temp)).toBeUndefined()
+    expect(await gitRoot(temp)).toBeUndefined()
+    expect(gitRoot.sync(temp)).toBeUndefined()
+  })
+
+  it('`gitRoot.sync` refers to `gitRootSync`', () => {
+    expect(gitRootSync).toBe(gitRoot.sync)
   })
 })
