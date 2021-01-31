@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/antongolub/git-dir/compare/v1.1.0...v1.2.0) (2021-01-31)
+
+
+### Features
+
+* add gitDir.sync() alias ([efd7f71](https://github.com/antongolub/git-dir/commit/efd7f711725e6a6c8b179a7e0540caf496bc0898))
+
 # [1.1.0](https://github.com/antongolub/git-dir/compare/v1.0.0...v1.1.0) (2021-01-31)
 
 
