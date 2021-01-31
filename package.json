@@ -67,10 +67,6 @@
     "tempy": "^1.0.0",
     "fs-extra": "^9.1.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/qiwi/blank-ts-repo.git"
-  },
   "keywords": [
     "git root",
     "git dir"
@@ -85,6 +81,10 @@
   ],
   "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antongolub/git-dir.git"
+  },
   "bugs": {
     "url": "https://github.com/antongolub/git-dir/issues"
   },
