@@ -2,7 +2,7 @@ import fs from 'fs-extra'
 import path from 'path'
 import tempy from 'tempy'
 
-import { gitRoot, gitRootSync } from '../../main/ts'
+import def, { gitRoot, gitRootSync } from '../../main/ts'
 
 describe('gitRoot', () => {
   it('returns .git root', async () => {
@@ -51,5 +51,9 @@ describe('gitRoot', () => {
 
   it('`gitRoot.sync` refers to `gitRootSync`', () => {
     expect(gitRootSync).toBe(gitRoot.sync)
+  })
+
+  it('default export refers to `gitRoot`', () => {
+    expect(def).toBe(gitRoot)
   })
 })

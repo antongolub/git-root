@@ -6,3 +6,8 @@ describe('index (es6)', () => {
   })
 })
 
+describe('bundle', () => {
+  it('exports gitRoot fn', () => {
+    expect(require('../../../target/bundle/git-root').gitRoot).toEqual(expect.any(Function)) // eslint-disable-line
+  })
+})
