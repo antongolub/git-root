@@ -46,3 +46,7 @@ export const gitDir = <S>(
     { type: 'directory', cwd },
   ) as Extends<S, boolean, Match, Promise<Match>>
 }
+
+const gitDirSync = (cwd?: string): Match => gitDir(cwd, true)
+
+gitDir.sync = gitDirSync
