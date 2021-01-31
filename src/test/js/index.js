@@ -1,7 +1,8 @@
-import { gitDir } from '../../../target/es6'
+import { gitRoot } from '../../../target/es6'
 
 describe('index (es6)', () => {
-  it('exports gitDir fn', () => {
-    expect(gitDir).toEqual(expect.any(Function))
+  it('exports gitRoot fn', () => {
+    expect(gitRoot).toEqual(expect.any(Function))
   })
 })
+

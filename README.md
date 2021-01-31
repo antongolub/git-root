@@ -1,8 +1,8 @@
-# @antongolub/git-dir
-Find the closest .git containing path.
+# @antongolub/git-root
+Find the closest .git containing path — the git root.
 
-[![CI](https://github.com/antongolub/git-dir/workflows/CI/badge.svg)](https://github.com/antongolub/git-dir/actions)
-[![David](https://img.shields.io/david/dev/antongolub/git-dir?label=deps)](https://david-dm.org/antongolub/git-dir?type=dev)
+[![CI](https://github.com/antongolub/git-root/workflows/CI/badge.svg)](https://github.com/antongolub/git-root/actions)
+[![David](https://img.shields.io/david/dev/antongolub/git-root?label=deps)](https://david-dm.org/antongolub/git-root?type=dev)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/maintainability)](https://codeclimate.com/github/antongolub/git-up/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/test_coverage)](https://codeclimate.com/github/antongolub/git-up/test_coverage)
 
@@ -11,7 +11,7 @@ It's known for certain the best way to find git root:
 ```shell
 git rev-parse --show-toplevel
 ```
-It makes sense to use this tool only if `git` executable or `child_process.exec` are not available for some (security?) reasons.
+However, if `git` executable or `child_process.exec` are not available for some (security?) reasons, it's  advisable to use tools like this one.
 Inspired by [pkg-dir](https://github.com/sindresorhus/pkg-dir).
 
 ## Features
@@ -22,24 +22,24 @@ Inspired by [pkg-dir](https://github.com/sindresorhus/pkg-dir).
 
 ## Install
 ```shell
-yarn add @antongolub/git-dir
+yarn add @antongolub/git-root
 ```
 
 ## Usage
 ```ts
-import { gitDir, gitDirSync } from '@antongolub/git-dir'
+import { gitRoot, gitRootSync } from '@antongolub/git-root'
 
 // async
-const gitRoot1 = await gitDir('/optional/cwd/path/')
+const gitRoot1 = await gitRoot('/optional/cwd/path/')
 
 // sync
-const gitRoot2 = gitDir('/defaults/to/process/cwd/', true)
+const gitRoot2 = gitRoot('/defaults/to/process/cwd/', true)
 
 // sync too
-const gitRoot3 = gitDir.sync()
+const gitRoot3 = gitRoot.sync()
 
-// `gitDirSync` is alias for `gitDir.sync`
-const gitRoot4 = gitDirSync()
+// `gitRootSync` is alias for `gitRoot.sync`
+const gitRoot4 = gitRootSync()
 ```
 
 ## Alternatives

@@ -18,7 +18,7 @@ export const effect = <
 ): Extends<V, Promise<any>, R1, R2> =>
   isPromiseLike(value) ? (value as any)?.then(cb) : cb(value)
 
-export const gitDir = <S>(
+export const gitRoot = <S>(
   cwd?: string,
   sync?: S,
 ): Extends<S, boolean, Match, Promise<Match>> => {
@@ -49,6 +49,6 @@ export const gitDir = <S>(
   ) as Extends<S, boolean, Match, Promise<Match>>
 }
 
-export const gitDirSync = (cwd?: string): Match => gitDir(cwd, true)
+export const gitRootSync = (cwd?: string): Match => gitRoot(cwd, true)
 
-gitDir.sync = gitDirSync
+gitRoot.sync = gitRootSync

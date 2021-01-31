@@ -1,5 +1,5 @@
 {
-  "name": "@antongolub/git-dir",
+  "name": "@antongolub/git-root",
   "version": "1.3.0",
   "private": false,
   "publishConfig": {
@@ -83,10 +83,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/antongolub/git-dir.git"
+    "url": "https://github.com/antongolub/git-root.git"
   },
   "bugs": {
-    "url": "https://github.com/antongolub/git-dir/issues"
+    "url": "https://github.com/antongolub/git-root/issues"
   },
-  "homepage": "https://github.com/antongolub/git-dir/#readme"
+  "homepage": "https://github.com/antongolub/git-root/#readme"
 }
