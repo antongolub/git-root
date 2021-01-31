@@ -2689,6 +2689,9 @@ img {
 			<a href="modules.html#effect" class="tsd-kind-icon">effect</a>
 		</li>
 		<li class=" tsd-kind-function">
+			<a href="modules.html#gitdirsync" class="tsd-kind-icon">git<wbr>Dir<wbr>Sync</a>
+		</li>
+		<li class=" tsd-kind-function">
 			<a href="modules.html#ispromiselike" class="tsd-kind-icon">is<wbr>Promise<wbr>Like</a>
 		</li>
 	</ul>
@@ -2729,7 +2732,7 @@ img {
 			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 				<h2>Usage</h2>
 			</a>
-			<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">gitDir</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@antongolub/git-dir&#039;</span>
+			<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">gitDir</span><span style="color: #000000">, </span><span style="color: #001080">gitDirSync</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@antongolub/git-dir&#039;</span>
 
 <span style="color: #008000">// async</span>
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">gitRoot1</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">gitDir</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/optional/cwd/path/&#039;</span><span style="color: #000000">)</span>
@@ -2739,6 +2742,9 @@ img {
 
 <span style="color: #008000">// sync too</span>
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">gitRoot3</span><span style="color: #000000"> = </span><span style="color: #001080">gitDir</span><span style="color: #000000">.</span><span style="color: #795E26">sync</span><span style="color: #000000">()</span>
+
+<span style="color: #008000">// `gitDirSync` is alias for `gitDir.sync`</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">gitRoot4</span><span style="color: #000000"> = </span><span style="color: #795E26">gitDirSync</span><span style="color: #000000">()</span>
 </code></pre>
 			<a href="#alternatives" id="alternatives" style="color: inherit; text-decoration: none;">
 				<h2>Alternatives</h2>
@@ -2770,6 +2776,7 @@ img {
 						<h3>Functions</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#effect" class="tsd-kind-icon">effect</a></li>
+							<li class="tsd-kind-function"><a href="modules.html#gitdirsync" class="tsd-kind-icon">git<wbr>Dir<wbr>Sync</a></li>
 							<li class="tsd-kind-function"><a href="modules.html#ispromiselike" class="tsd-kind-icon">is<wbr>Promise<wbr>Like</a></li>
 						</ul>
 					</section>
@@ -2784,7 +2791,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">git<wbr>Dir<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>sync<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>cwd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Match</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/antongolub/git-dir/blob/efd7f71/src/main/ts/index.ts#L20">index.ts:20</a></li>
+						<li>Defined in <a href="https://github.com/antongolub/git-dir/blob/ca2b3ad/src/main/ts/index.ts#L21">index.ts:21</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2852,7 +2859,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/antongolub/git-dir/blob/efd7f71/src/main/ts/index.ts#L9">index.ts:9</a></li>
+								<li>Defined in <a href="https://github.com/antongolub/git-dir/blob/ca2b3ad/src/main/ts/index.ts#L10">index.ts:10</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -2884,6 +2891,29 @@ img {
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="gitdirsync" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> git<wbr>Dir<wbr>Sync</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">git<wbr>Dir<wbr>Sync<span class="tsd-signature-symbol">(</span>cwd<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Match</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/antongolub/git-dir/blob/ca2b3ad/src/main/ts/index.ts#L52">index.ts:52</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> cwd: <span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Match</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
 				<a name="ispromiselike" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>Promise<wbr>Like</h3>
 				<ul class="tsd-signatures tsd-kind-function">
@@ -2893,7 +2923,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/antongolub/git-dir/blob/efd7f71/src/main/ts/index.ts#L6">index.ts:6</a></li>
+								<li>Defined in <a href="https://github.com/antongolub/git-dir/blob/ca2b3ad/src/main/ts/index.ts#L7">index.ts:7</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
