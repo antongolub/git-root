@@ -27,7 +27,7 @@ yarn add @antongolub/git-dir
 
 ## Usage
 ```ts
-import { gitDir } from '@antongolub/git-dir'
+import { gitDir, gitDirSync } from '@antongolub/git-dir'
 
 // async
 const gitRoot1 = await gitDir('/optional/cwd/path/')
@@ -37,6 +37,9 @@ const gitRoot2 = gitDir('/defaults/to/process/cwd/', true)
 
 // sync too
 const gitRoot3 = gitDir.sync()
+
+// `gitDirSync` is alias for `gitDir.sync`
+const gitRoot4 = gitDirSync()
 ```
 
 ## Alternatives

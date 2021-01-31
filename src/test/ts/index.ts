@@ -2,9 +2,20 @@ import fs from 'fs-extra'
 import path from 'path'
 import tempy from 'tempy'
 
-import { gitDir } from '../../main/ts'
+import { gitDir, gitDirSync } from '../../main/ts'
 
 describe('gitDir', () => {
+  it('returns .git dir root', async () => {
+    const temp = tempy.directory()
+    const inner = path.resolve(temp, 'foo/bar/baz')
+
+    fs.mkdirpSync(inner)
+    fs.mkdirpSync(path.resolve(temp, '.git'))
+
+    expect(await gitDir(inner)).toBe(temp)
+    expect(gitDirSync(inner)).toBe(temp)
+  })
+
   it('handles `gitdir: ref` and returns target path if exists', async () => {
     const temp0 = tempy.directory()
     const temp1 = tempy.directory()
