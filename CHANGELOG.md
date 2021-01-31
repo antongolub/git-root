@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/antongolub/git-root/compare/v1.3.0...v1.4.0) (2021-01-31)
+
+
+### Bug Fixes
+
+* **package:** fix main script ref ([a24b8fc](https://github.com/antongolub/git-root/commit/a24b8fc8acd149d971adee7a2c7011d7caba2430))
+
+
+### Features
+
+* rename gitDir to gitRoot ([8143e3c](https://github.com/antongolub/git-root/commit/8143e3cc1b8b86a4557608bfd0e2971734f671de))
+
 # [1.3.0](https://github.com/antongolub/git-root/compare/v1.2.0...v1.3.0) (2021-01-31)
 
 
