@@ -72,7 +72,8 @@
     "url": "https://github.com/qiwi/blank-ts-repo.git"
   },
   "keywords": [
-    "blank-ts-repo"
+    "git root",
+    "git dir"
   ],
   "files": [
     "README.md",
@@ -82,10 +83,10 @@
     "flow-typed",
     "buildstamp.json"
   ],
-  "author": "Anton Golub <a.golub@qiwi.com>",
+  "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/qiwi/blank-ts-monorepo/issues"
+    "url": "https://github.com/antongolub/git-dir/issues"
   },
-  "homepage": "https://github.com/qiwi/blank-ts-monorepo/#readme"
+  "homepage": "https://github.com/antongolub/git-dir/#readme"
 }
