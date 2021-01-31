@@ -14,6 +14,12 @@ git rev-parse --show-toplevel
 It makes sense to use this tool only if `git` executable or `child_process.exec` are not available for some (security?) reasons.
 Inspired by [pkg-dir](https://github.com/sindresorhus/pkg-dir).
 
+## Features
+* Searches for `.git` up the dir tree
+* Handles `gitdir: </some/path.git>` redirects 
+* TS and Flow typings out of box
+* Sync/async methods
+
 ## Install
 ```shell
 yarn add @antongolub/git-dir
@@ -28,11 +34,14 @@ const gitRoot1 = await gitDir('/optional/cwd/path/')
 
 // sync
 const gitRoot2 = gitDir('/defaults/to/process/cwd/', true)
+
+// sync too
+const gitRoot3 = gitDir.sync()
 ```
 
 ## Alternatives
 
 * [find-git-root](https://github.com/banyudu/find-git-root)
-* [git-root](https://www.npmjs.com/package/git-root)
-
-
+* [git-root](https://github.com/JPeer264/node-git-root)
+* [git-toplevel](https://github.com/royriojas/git-toplevel)
+* [git-root-path](https://github.com/VishnuTSuresh/git-root-path)

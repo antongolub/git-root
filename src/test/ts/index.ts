@@ -15,6 +15,7 @@ describe('gitDir', () => {
     })
 
     expect(await gitDir(temp0)).toBe(temp1)
+    expect(gitDir.sync(temp0)).toBe(temp1)
   })
 
   it('returns undefined if `gitdir: ref` is unreachable', async () => {
@@ -24,6 +25,7 @@ describe('gitDir', () => {
     await fs.outputFile(path.join(temp, '.git'), data, { encoding: 'utf8' })
 
     expect(await gitDir(temp)).toBeUndefined()
+    expect(gitDir.sync(temp)).toBeUndefined()
   })
 
   it('returns undefined if `gitdir: ref` is invalid', async () => {
@@ -33,5 +35,6 @@ describe('gitDir', () => {
     await fs.outputFile(path.join(temp, '.git'), data, { encoding: 'utf8' })
 
     expect(await gitDir(temp)).toBeUndefined()
+    expect(gitDir.sync(temp)).toBeUndefined()
   })
 })
