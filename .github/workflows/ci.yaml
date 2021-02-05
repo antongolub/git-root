@@ -26,12 +26,13 @@ jobs:
             typings
             buildstamp.json
   test:
-    name: Test (Node v${{ matrix.node-version }})
-    runs-on: ubuntu-20.04
-    needs: build
     strategy:
       matrix:
-        node-version: [12, 14]
+        os: [ windows-2019, ubuntu-20.04 ]
+        node-version: [ 12, 14 ]
+    name: Test (Node v${{ matrix.node-version }})
+    runs-on: ${{ matrix.os }}
+    needs: build
     steps:
       - uses: actions/checkout@v2
       - name: Restore target
