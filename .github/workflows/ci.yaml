@@ -30,7 +30,7 @@ jobs:
       matrix:
         os: [ windows-2019, ubuntu-20.04 ]
         node-version: [ 12, 14 ]
-    name: Test (Node v${{ matrix.node-version }})
+    name: Test (Node v${{ matrix.node-version }}, OS ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     needs: build
     steps:
@@ -43,9 +43,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn
-      - run: yarn test
+      - name: Unit test only
+        if: matrix.node-version != '14' && matrix.os != 'ubuntu-20.04'
+        run: yarn test:unit
+      - name: Full test
+        if: matrix.node-version == '14' && matrix.os == 'ubuntu-20.04'
+        run: yarn test
       - name: Push coverage
-        if: matrix.node-version == '14'
+        if: matrix.node-version == '14' && matrix.os == 'ubuntu-20.04'
         uses: actions/upload-artifact@v2
         with:
           name: target
