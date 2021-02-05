@@ -25,7 +25,33 @@ jobs:
             flow-typed
             typings
             buildstamp.json
+
+  test_fast:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore target
+        uses: actions/download-artifact@v2
+        with:
+          name: target
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - run: yarn
+      - name: Unit test only
+        run: yarn test:unit
+      - name: Push coverage
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v2
+        with:
+          name: target
+          retention-days: 1
+          path: coverage
+
   test:
+    if: github.event_name == 'pull_request'
     strategy:
       matrix:
         os: [ windows-2019, ubuntu-20.04 ]
@@ -49,19 +75,13 @@ jobs:
       - name: Full test
         if: matrix.node-version == '14' && matrix.os == 'ubuntu-20.04'
         run: yarn test
-      - name: Push coverage
-        if: matrix.node-version == '14' && matrix.os == 'ubuntu-20.04'
-        uses: actions/upload-artifact@v2
-        with:
-          name: target
-          retention-days: 1
-          path: coverage
 
   release:
     name: Release
-    runs-on: ubuntu-20.04
-    needs: test
+    # https://github.community/t/trigger-job-on-tag-push-only/18076
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-20.04
+    needs: test_fast
     steps:
       - uses: actions/checkout@v2
       - name: Restore target
