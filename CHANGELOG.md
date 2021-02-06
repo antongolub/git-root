@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/antongolub/git-root/compare/v1.4.0...v1.5.0) (2021-02-06)
+
+
+### Features
+
+* let lstat be async ([2aa7341](https://github.com/antongolub/git-root/commit/2aa734165d457bb836bcda69408a2a3eaa5e9d68))
+
 # [1.4.0](https://github.com/antongolub/git-root/compare/v1.3.0...v1.4.0) (2021-01-31)
 
 
