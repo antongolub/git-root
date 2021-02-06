@@ -16,7 +16,7 @@ export const effect = <
   value: V,
   cb: C,
 ): Extends<V, Promise<any>, R1, R2> =>
-  isPromiseLike(value) ? (value as any)?.then(cb) : cb(value)
+  isPromiseLike(value) ? (value as Promise<any>).then(cb) : cb(value)
 
 export const gitRoot = <S>(
   cwd?: string,
@@ -24,26 +24,24 @@ export const gitRoot = <S>(
 ): Extends<S, boolean, Match, Promise<Match>> => {
   const exec = sync ? findUp.sync : findUp
   const readFile = sync ? fs.readFileSync : util.promisify(fs.readFile)
+  const lStat = sync ? fs.lstatSync : util.promisify(fs.lstat)
 
   return exec(
     (directory) => {
       const gitDir = path.join(directory, '.git')
 
-      return effect(exec.exists(gitDir), (exists) => {
-        if (!exists) {
-          return
-        }
-
-        if (fs.lstatSync(gitDir).isDirectory()) {
-          return directory
-        }
-
-        return effect(readFile(gitDir, { encoding: 'utf-8' }), (gitRef) => {
-          const match = /^gitdir: (.*)\.git\s*$/.exec(gitRef)
-
-          return match ? match[1] : undefined
-        })
-      })
+      return effect(exec.exists(gitDir), (exists) =>
+        !exists
+          ? undefined
+          : effect(lStat(gitDir), (stat) =>
+              stat.isDirectory()
+                ? directory
+                : effect(
+                    readFile(gitDir, { encoding: 'utf-8' }),
+                    (gitRef) => /^gitdir: (.*)\.git\s*$/.exec(gitRef)?.[1],
+                  ),
+            ),
+      )
     },
     { type: 'directory', cwd },
   ) as Extends<S, boolean, Match, Promise<Match>>
