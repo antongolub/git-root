@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/antongolub/git-root/compare/v1.5.0...v1.5.1) (2021-02-07)
+
+
+### Performance Improvements
+
+* tech release ([400f37f](https://github.com/antongolub/git-root/commit/400f37f06b904f04d9984d18b2c933b41e212475))
+
 # [1.5.0](https://github.com/antongolub/git-root/compare/v1.4.0...v1.5.0) (2021-02-06)
 
 
