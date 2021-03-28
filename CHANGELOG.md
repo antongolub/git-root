@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/antongolub/git-root/compare/v1.5.2...v1.5.3) (2021-03-28)
+
+
+### Bug Fixes
+
+* **package:** up deps, fix vuls ([333d51d](https://github.com/antongolub/git-root/commit/333d51d77085689b642f0823880400505b4cf7a6))
+
 ## [1.5.2](https://github.com/antongolub/git-root/compare/v1.5.1...v1.5.2) (2021-03-08)
 
 
