@@ -1,0 +1,30 @@
+# Run full test suite on pull-request
+name: ci-pull-request
+on: pull_request
+jobs:
+  test_pr:
+    needs: build
+    strategy:
+      matrix:
+        os: [ windows-2019, ubuntu-20.04 ]
+        node-version: [ 12, 14 ]
+    name: Test (Node v${{ matrix.node-version }}, OS ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Restore target
+        uses: actions/download-artifact@v2
+        with:
+          name: target
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn
+      - name: Unit test only
+        if: matrix.node-version != '14' || matrix.os != 'ubuntu-20.04'
+        run: yarn test:unit
+      - name: Full test
+        if: matrix.node-version == '14' && matrix.os == 'ubuntu-20.04'
+        run: yarn test
