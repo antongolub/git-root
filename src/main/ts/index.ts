@@ -11,14 +11,22 @@ export const effect = <
   V extends any,
   C extends ICallable,
   R1 = Promise<ReturnType<C>>,
-  R2 = ReturnType<C>
+  R2 = ReturnType<C>,
 >(
   value: V,
   cb: C,
 ): Extends<V, Promise<any>, R1, R2> =>
   isPromiseLike(value) ? (value as Promise<any>).then(cb) : cb(value)
 
-export const gitRoot = <S>(
+export type TGitRootSync = (cwd?: string) => Match
+
+export type TGitRoot = {
+  <S>(cwd?: string, sync?: S): Extends<S, boolean, Match, Promise<Match>>
+  sync: TGitRootSync
+}
+
+// @ts-ignore
+export const gitRoot: TGitRoot = <S>(
   cwd?: string,
   sync?: S,
 ): Extends<S, boolean, Match, Promise<Match>> => {
@@ -49,6 +57,8 @@ export const gitRoot = <S>(
 
 export const gitRootSync = (cwd?: string): Match => gitRoot(cwd, true)
 
-gitRoot.sync = gitRootSync
+// Workaround for typedoc + TS 4.3
+// gitRoot.sync = gitRootSync
+Object.assign(gitRoot, { sync: gitRootSync })
 
 export default gitRoot
