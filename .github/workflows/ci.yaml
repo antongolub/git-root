@@ -31,7 +31,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Fetch deps
         run: yarn
@@ -69,7 +69,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Fetch deps
         run: yarn
@@ -91,7 +91,7 @@ jobs:
     strategy:
       matrix:
         os: [ windows-2019, ubuntu-20.04 ]
-        node-version: [ 12, 14 ]
+        node-version: [ 14, 16 ]
     name: Test (Node v${{ matrix.node-version }}, OS ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     steps:
@@ -112,11 +112,11 @@ jobs:
       - run: yarn
 
       - name: Unit test only
-        if: matrix.node-version != '14' || matrix.os != 'ubuntu-20.04'
+        if: matrix.node-version != '16' || matrix.os != 'ubuntu-20.04'
         run: yarn test:unit
 
       - name: Full test
-        if: matrix.node-version == '14' && matrix.os == 'ubuntu-20.04'
+        if: matrix.node-version == '16' && matrix.os == 'ubuntu-20.04'
         run: yarn test
 
   release:
@@ -137,7 +137,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Codeclimate
         uses: paambaati/codeclimate-action@v2.7.5
