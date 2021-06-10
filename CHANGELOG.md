@@ -1,3 +1,10 @@
+## [1.5.6](https://github.com/antongolub/git-root/compare/v1.5.5...v1.5.6) (2021-06-10)
+
+
+### Performance Improvements
+
+* **package:** update deps ([26b47fb](https://github.com/antongolub/git-root/commit/26b47fb28bec47b529c0ca875273bd7a6be772da))
+
 ## [1.5.5](https://github.com/antongolub/git-root/compare/v1.5.4...v1.5.5) (2021-05-25)
 
 
