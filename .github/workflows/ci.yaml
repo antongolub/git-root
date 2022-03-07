@@ -62,7 +62,7 @@ jobs:
           fetch-depth: 0
 
       - name: Restore build artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: target
 
@@ -101,7 +101,7 @@ jobs:
           fetch-depth: 0
 
       - name: Restore target
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: target
 
@@ -130,7 +130,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Restore target
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: target
 
