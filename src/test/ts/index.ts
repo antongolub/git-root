@@ -1,12 +1,12 @@
 import fs from 'fs-extra'
 import path from 'path'
-import tempy from 'tempy'
+import { temporaryDirectory } from 'tempy'
 
 import def, { gitRoot, gitRootSync } from '../../main/ts'
 
 describe('gitRoot', () => {
   it('returns .git root', async () => {
-    const temp = tempy.directory()
+    const temp = temporaryDirectory()
     const inner = path.resolve(temp, 'foo/bar/baz')
 
     fs.mkdirpSync(inner)
@@ -17,8 +17,8 @@ describe('gitRoot', () => {
   })
 
   it('handles `gitdir: ref` and returns target path if exists', async () => {
-    const temp0 = tempy.directory()
-    const temp1 = tempy.directory()
+    const temp0 = temporaryDirectory()
+    const temp1 = temporaryDirectory()
     const data = `gitdir: ${temp1}.git `
 
     await fs.outputFile(path.join(temp0, '.git'), data, {
@@ -30,7 +30,7 @@ describe('gitRoot', () => {
   })
 
   it('returns undefined if `gitdir: ref` is unreachable', async () => {
-    const temp = tempy.directory()
+    const temp = temporaryDirectory()
     const data = `gitdir: /foo/bar/baz.git `
 
     await fs.outputFile(path.join(temp, '.git'), data, { encoding: 'utf8' })
@@ -40,7 +40,7 @@ describe('gitRoot', () => {
   })
 
   it('returns undefined if `gitdir: ref` is invalid', async () => {
-    const temp = tempy.directory()
+    const temp = temporaryDirectory()
     const data = `gitdir: broken-ref-format`
 
     await fs.outputFile(path.join(temp, '.git'), data, { encoding: 'utf8' })

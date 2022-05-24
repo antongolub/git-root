@@ -8,7 +8,7 @@ export const isPromiseLike = (value: any): boolean =>
   typeof (value as any)?.then === 'function'
 
 export const effect = <
-  V extends any,
+  V extends any, // eslint-disable-line
   C extends ICallable,
   R1 = Promise<ReturnType<C>>,
   R2 = ReturnType<C>,
