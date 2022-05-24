@@ -2,9 +2,9 @@
 Find the closest .git containing path — the git root.
 
 [![CI](https://github.com/antongolub/git-root/workflows/CI/badge.svg)](https://github.com/antongolub/git-root/actions)
-[![David](https://img.shields.io/david/dev/antongolub/git-root?label=deps)](https://david-dm.org/antongolub/git-root?type=dev)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/maintainability)](https://codeclimate.com/github/antongolub/git-up/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/test_coverage)](https://codeclimate.com/github/antongolub/git-up/test_coverage)
+[![npm (scoped)](https://img.shields.io/npm/v/@antongolub/git-root)](https://www.npmjs.com/package/@antongolub/git-root)
 
 ## Motivation
 It's known for certain the best way to find git root:
@@ -48,3 +48,6 @@ const gitRoot4 = gitRootSync()
 * [git-root](https://github.com/JPeer264/node-git-root)
 * [git-toplevel](https://github.com/royriojas/git-toplevel)
 * [git-root-path](https://github.com/VishnuTSuresh/git-root-path)
+
+## License
+[MIT](./LICENSE)
