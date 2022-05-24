@@ -1,3 +1,10 @@
+## [1.5.7](https://github.com/antongolub/git-root/compare/v1.5.6...v1.5.7) (2022-05-24)
+
+
+### Bug Fixes
+
+* up deps, fix some vuls ([bcce5c9](https://github.com/antongolub/git-root/commit/bcce5c9c476a7ea4ec6aace591e8724eda1d0816))
+
 ## [1.5.6](https://github.com/antongolub/git-root/compare/v1.5.5...v1.5.6) (2021-06-10)
 
 
