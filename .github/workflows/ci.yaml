@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - id: ci-skip-step
         uses: mstachniuk/ci-skip@v1
 
@@ -25,13 +23,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Fetch deps
         run: yarn
@@ -58,8 +54,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Restore build artifact
         uses: actions/download-artifact@v3
@@ -69,7 +63,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Fetch deps
         run: yarn
@@ -91,14 +85,12 @@ jobs:
     strategy:
       matrix:
         os: [ windows-2019, ubuntu-20.04 ]
-        node-version: [ 14, 16 ]
+        node-version: [ 14, 18 ]
     name: Test (Node v${{ matrix.node-version }}, OS ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Restore target
         uses: actions/download-artifact@v3
@@ -112,11 +104,11 @@ jobs:
       - run: yarn
 
       - name: Unit test only
-        if: matrix.node-version != '16' || matrix.os != 'ubuntu-20.04'
+        if: matrix.node-version != '18' || matrix.os != 'ubuntu-20.04'
         run: yarn test:unit
 
       - name: Full test
-        if: matrix.node-version == '16' && matrix.os == 'ubuntu-20.04'
+        if: matrix.node-version == '18' && matrix.os == 'ubuntu-20.04'
         run: yarn test
 
   release:
@@ -128,6 +120,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       - name: Restore target
         uses: actions/download-artifact@v3
@@ -137,7 +131,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Codeclimate
         uses: paambaati/codeclimate-action@v3.0.0
@@ -147,11 +141,7 @@ jobs:
           coverageLocations: |
             ${{github.workspace}}/coverage/*.lcov:lcov
 
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
-        with:
-          extends: |
-            @qiwi/semrel-config
+      - name: Semantic release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -160,3 +150,4 @@ jobs:
           GIT_COMMITTER_EMAIL: 'mailbox@antongolub.ru'
           GIT_AUTHOR_NAME: '@antongolub'
           GIT_COMMITTER_NAME: '@antongolub'
+        run: npx -p @qiwi/semrel-toolkit semantic-release -e @qiwi/semrel-config
