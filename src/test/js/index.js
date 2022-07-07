@@ -22,6 +22,5 @@ describe('bundle', (it) => {
     const fn = require('../../../target/bundle/git-root.cjs').gitRoot  // eslint-disable-line
 
     expect(fn(undefined, true)).toEqual(root)
-
   })
 })
