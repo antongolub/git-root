@@ -1,20 +1,27 @@
-import path from 'path'
+import { expect } from 'earljs'
+import { createRequire } from 'node:module'
+import path from 'node:path'
+import {fileURLToPath} from 'node:url'
+import { suite } from 'uvu'
 
-import { gitRoot } from '../../../target/es6'
+import { gitRoot } from '../../../target/es6/index.js'
 
+const require = createRequire(import.meta.url)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const describe = (name, cb) => { const test = suite(name); cb(test); test.run() }
 const root = path.resolve(__dirname, '../../..')
 
-describe('index (es6)', () => {
+describe('index (es6)', (it) => {
   it('exports gitRoot fn', () => {
-    expect(gitRoot(undefined, true)).toBe(root)
+    expect(gitRoot(undefined, true)).toEqual(root)
   })
 })
 
-describe('bundle', () => {
+describe('bundle', (it) => {
   it('exports gitRoot fn', () => {
-    const fn = require('../../../target/bundle/git-root').gitRoot  // eslint-disable-line
+    const fn = require('../../../target/bundle/git-root.cjs').gitRoot  // eslint-disable-line
 
-    expect(fn(undefined, true)).toBe(root)
+    expect(fn(undefined, true)).toEqual(root)
 
   })
 })

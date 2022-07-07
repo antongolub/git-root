@@ -1,10 +1,18 @@
+import { expect } from 'earljs'
 import fs from 'fs-extra'
-import path from 'path'
+import path from 'node:path'
 import { temporaryDirectory } from 'tempy'
+import { suite, Test } from 'uvu'
 
-import def, { gitRoot, gitRootSync } from '../../main/ts'
+import def, { gitRoot, gitRootSync } from '../../main/ts/index.js'
 
-describe('gitRoot', () => {
+const describe = (name: string, cb: (it: Test) => void) => {
+  const test = suite(name)
+  cb(test)
+  test.run()
+}
+
+describe('gitRoot', (it) => {
   it('returns .git root', async () => {
     const temp = temporaryDirectory()
     const inner = path.resolve(temp, 'foo/bar/baz')
@@ -12,8 +20,8 @@ describe('gitRoot', () => {
     fs.mkdirpSync(inner)
     fs.mkdirpSync(path.resolve(temp, '.git'))
 
-    expect(await gitRoot(inner)).toBe(temp)
-    expect(gitRootSync(inner)).toBe(temp)
+    expect(await gitRoot(inner)).toEqual(temp)
+    expect(gitRootSync(inner)).toEqual(temp)
   })
 
   it('handles `gitdir: ref` and returns target path if exists', async () => {
@@ -25,8 +33,8 @@ describe('gitRoot', () => {
       encoding: 'utf8',
     })
 
-    expect(await gitRoot(temp0)).toBe(temp1)
-    expect(gitRoot.sync(temp0)).toBe(temp1)
+    expect(await gitRoot(temp0)).toEqual(temp1)
+    expect(gitRoot.sync(temp0)).toEqual(temp1)
   })
 
   it('returns undefined if `gitdir: ref` is unreachable', async () => {
@@ -35,8 +43,8 @@ describe('gitRoot', () => {
 
     await fs.outputFile(path.join(temp, '.git'), data, { encoding: 'utf8' })
 
-    expect(await gitRoot(temp)).toBeUndefined()
-    expect(gitRoot.sync(temp)).toBeUndefined()
+    expect(await gitRoot(temp)).not.toBeDefined()
+    expect(gitRoot.sync(temp)).not.toBeDefined()
   })
 
   it('returns undefined if `gitdir: ref` is invalid', async () => {
@@ -45,15 +53,15 @@ describe('gitRoot', () => {
 
     await fs.outputFile(path.join(temp, '.git'), data, { encoding: 'utf8' })
 
-    expect(await gitRoot(temp)).toBeUndefined()
-    expect(gitRoot.sync(temp)).toBeUndefined()
+    expect(await gitRoot(temp)).not.toBeDefined()
+    expect(gitRoot.sync(temp)).not.toBeDefined()
   })
 
   it('`gitRoot.sync` refers to `gitRootSync`', () => {
-    expect(gitRootSync).toBe(gitRoot.sync)
+    expect(gitRootSync).toEqual(gitRoot.sync)
   })
 
   it('default export refers to `gitRoot`', () => {
-    expect(def).toBe(gitRoot)
+    expect(def).toEqual(gitRoot)
   })
 })

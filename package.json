@@ -6,7 +6,14 @@
     "access": "public"
   },
   "description": "Find the closest .git containing path",
-  "main": "target/bundle/git-root.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./target/bundle/git-root.cjs",
+      "import": "./target/bundle/git-root.mjs"
+    }
+  },
+  "main": "target/bundle/git-root.cjs",
   "module": "target/bundle/git-root.mjs",
   "unpkg": "target/bundle/git-root.umd.js",
   "types": "typings/index.d.ts",
@@ -19,15 +26,14 @@
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "test": "npm-run-all -p -l lint test:unit test:depcheck test:depaudit",
-    "test:unit": "jest --config=jest.config.json --runInBand",
+    "test:unit": "c8 -r html -r text -r lcov loadr -- uvu 'src/test'",
     "test:deps": "npm-run-all -p -l test:depcheck test:depauditfix",
-    "test:depcheck": "npm_config_yes=true npx depcheck --ignores typedoc,tslib,@swissquote/crafty-preset-jest,@types/jest,@types/node",
+    "test:depcheck": "npm_config_yes=true npx depcheck --ignores typedoc,tslib,tsm,@types/node",
     "test:depaudit": "yarn audit --level=moderate --groups=dependencies; [[ $? -ge 4 ]] && exit 1 || exit 0",
     "test:depauditfix": "npm_config_yes=true npx yarn-audit-fix --audit-level=moderate --only=prod",
     "test:report": "yarn test && yarn push:report",
     "prebuild": "yarn clean && npx buildstamp --git --out.path buildstamp.json",
-    "build": "npm-run-all -p -l build:es5 build:es6 build:ts build:libdef build:bundle docs",
-    "build:es5": "mkdirp target/es5 && tsc -p tsconfig.es5.json",
+    "build": "npm-run-all -p -l build:es6 build:ts build:libdef build:bundle docs",
     "build:es6": "mkdirp target/es6 && tsc -p tsconfig.es6.json",
     "build:ts": "cpy src/main/ts/ target/ts/ --flat",
     "build:bundle": "microbundle --tsconfig tsconfig.es5.json build src/main/ts/index.ts -o target/bundle",
@@ -39,33 +45,35 @@
     "postupdate": "yarn && yarn test:deps && yarn build && yarn test"
   },
   "dependencies": {
-    "tslib": "^2.4.0",
     "@qiwi/substrate": "^1.20.14",
-    "find-up": "^5.0.0"
+    "find-up": "^5.0.0",
+    "tslib": "^2.4.0"
   },
   "devDependencies": {
     "@qiwi/libdefkit": "^4.0.8",
     "@qiwi/npm-run-all": "^4.1.7",
-    "@swissquote/crafty-preset-jest": "^1.19.1",
     "@types/fs-extra": "^9.0.13",
-    "@types/jest": "^28.1.4",
     "@types/node": "^18.0.3",
+    "c8": "^7.11.3",
     "coveralls": "^3.1.1",
     "cpy-cli": "^4.1.0",
+    "earljs": "^0.2.3",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-qiwi": "^1.17.3",
-    "jest": "^28.1.2",
+    "fs-extra": "^10.1.0",
+    "loadr": "^0.1.1",
     "microbundle": "^0.15.0",
     "mkdirp": "^1.0.4",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
+    "tempy": "^3.0.0",
     "terser": "^5.14.1",
     "ts-jest": "^28.0.5",
+    "tsm": "^2.2.1",
     "typedoc": "^0.23.5",
     "typescript": "4.7.4",
-    "tempy": "^3.0.0",
-    "fs-extra": "^10.1.0"
+    "uvu": "^0.5.6"
   },
   "keywords": [
     "git root",
