@@ -1,8 +1,8 @@
 import { Extends, ICallable } from '@qiwi/substrate'
 import findUp, { Match } from 'find-up'
-import fs from 'fs'
-import path from 'path'
-import util from 'util'
+import fs from 'node:fs'
+import path from 'node:path'
+import util from 'node:util'
 
 export const isPromiseLike = (value: any): boolean =>
   typeof (value as any)?.then === 'function'
