@@ -1,3 +1,8 @@
+## [1.5.8](https://github.com/antongolub/git-root/compare/v1.5.7...v1.5.8) (2022-11-21)
+
+### Fixes & improvements
+* perf: up deps ([898bb3b](https://github.com/antongolub/git-root/commit/898bb3b74e25fe3b1f0b9c5ce8ab7453358eaaa7))
+
 ## [1.5.7](https://github.com/antongolub/git-root/compare/v1.5.6...v1.5.7) (2022-05-24)
 
 
