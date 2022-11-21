@@ -1,6 +1,7 @@
+import path from 'node:path'
+
 import { expect } from 'earljs'
 import fs from 'fs-extra'
-import path from 'node:path'
 import { temporaryDirectory } from 'tempy'
 import { suite, Test } from 'uvu'
 
