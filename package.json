@@ -61,7 +61,7 @@
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-qiwi": "^1.17.9",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.0.0",
     "loadr": "^0.1.1",
     "microbundle": "^0.15.1",
     "mkdirp": "^1.0.4",
