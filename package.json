@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@qiwi/substrate": "^1.20.16",
-    "find-up": "^5.0.0",
+    "find-up": "^6.0.0",
     "tslib": "^2.4.1"
   },
   "devDependencies": {
