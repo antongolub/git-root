@@ -64,7 +64,7 @@
     "fs-extra": "^11.1.0",
     "loadr": "^0.1.1",
     "microbundle": "^0.15.1",
-    "mkdirp": "^1.0.4",
+    "mkdirp": "^2.0.0",
     "prettier": "^2.8.1",
     "rimraf": "^3.0.2",
     "tempy": "^3.0.0",
