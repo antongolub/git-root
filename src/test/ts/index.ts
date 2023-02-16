@@ -25,11 +25,20 @@ describe('gitRoot', (it) => {
     expect(gitRootSync(inner)).toEqual(temp)
   })
 
+  it('returns undefined if path is unreachable', async () => {
+    const temp = temporaryDirectory()
+    const target = path.resolve(temp, 'foo/bar/baz')
+
+    expect(await gitRoot(target)).not.toBeDefined()
+    expect(gitRootSync(target)).not.toBeDefined()
+  })
+
   it('handles `gitdir: ref` and returns target path if exists', async () => {
     const temp0 = temporaryDirectory()
     const temp1 = temporaryDirectory()
     const data = `gitdir: ${temp1}.git `
 
+    await fs.mkdir(path.join(temp1, '.git'))
     await fs.outputFile(path.join(temp0, '.git'), data, {
       encoding: 'utf8',
     })

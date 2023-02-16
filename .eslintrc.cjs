@@ -1,6 +1,5 @@
 module.exports = {
     extends: [
-        'eslint-config-qiwi',
-        'prettier',
+        'eslint-config-qiwi'
     ],
 };
