@@ -67,8 +67,6 @@ export const gitRoot: TGitRoot = <S>(
 
 export const gitRootSync = (cwd?: string): Match => gitRoot(cwd, true)
 
-// Workaround for typedoc + TS 4.3
-// gitRoot.sync = gitRootSync
 gitRoot.sync = gitRootSync
 
 export default gitRoot
