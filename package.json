@@ -26,7 +26,7 @@
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "test": "npm-run-all -p -l lint test:unit test:depcheck test:depaudit",
-    "test:unit": "c8 -r html -r text -r lcov loadr -- uvu 'src/test'",
+    "test:unit": "c8 -r html -r text -r lcov loadr -- uvu src/test",
     "test:deps": "npm-run-all -p -l test:depcheck test:depauditfix",
     "test:depcheck": "npm_config_yes=true npx depcheck --ignores typedoc,tslib,tsm,@types/node,mkdirp,rimraf",
     "test:depaudit": "yarn audit --level=moderate --groups=dependencies; [[ $? -ge 4 ]] && exit 1 || exit 0",
