@@ -1,3 +1,8 @@
+## [1.5.10](https://github.com/antongolub/git-root/compare/v1.5.9...v1.5.10) (2023-02-16)
+
+### Fixes & improvements
+* docs: update badges ([2614f7a](https://github.com/antongolub/git-root/commit/2614f7aa97f37b6699935a746100d9fb9f9ba02e))
+
 ## [1.5.9](https://github.com/antongolub/git-root/compare/v1.5.8...v1.5.9) (2023-02-16)
 
 ### Fixes & improvements
