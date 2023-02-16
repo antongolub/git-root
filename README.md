@@ -2,8 +2,8 @@
 Find the closest .git containing path — the git root.
 
 [![CI](https://github.com/antongolub/git-root/workflows/CI/badge.svg)](https://github.com/antongolub/git-root/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/maintainability)](https://codeclimate.com/github/antongolub/git-up/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/b4e77381057e40c6ac63/test_coverage)](https://codeclimate.com/github/antongolub/git-up/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/77d281e69a451680e1d1/maintainability)](https://codeclimate.com/github/antongolub/git-root/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/77d281e69a451680e1d1/test_coverage)](https://codeclimate.com/github/antongolub/git-root/test_coverage)
 [![npm (scoped)](https://img.shields.io/npm/v/@antongolub/git-root)](https://www.npmjs.com/package/@antongolub/git-root)
 
 ## Motivation
