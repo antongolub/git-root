@@ -1,3 +1,8 @@
+## [1.5.9](https://github.com/antongolub/git-root/compare/v1.5.8...v1.5.9) (2023-02-16)
+
+### Fixes & improvements
+* refactor: drop find-up dependency ([72a9de8](https://github.com/antongolub/git-root/commit/72a9de84f974670166bc0d17335835111478c1a3))
+
 ## [1.5.8](https://github.com/antongolub/git-root/compare/v1.5.7...v1.5.8) (2022-11-21)
 
 ### Fixes & improvements

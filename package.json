@@ -1,6 +1,6 @@
 {
   "name": "@antongolub/git-root",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "private": false,
   "publishConfig": {
     "access": "public"
