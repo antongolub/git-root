@@ -45,7 +45,7 @@
     "postupdate": "yarn && yarn test:deps && yarn build && yarn test"
   },
   "dependencies": {
-    "@qiwi/substrate": "^1.20.16",
+    "@qiwi/substrate": "^2.0.0",
     "find-up": "^5.0.0",
     "tslib": "^2.4.1"
   },
