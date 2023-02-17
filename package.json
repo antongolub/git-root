@@ -45,7 +45,7 @@
     "postupdate": "yarn && yarn test:deps && yarn build && yarn test"
   },
   "dependencies": {
-    "@qiwi/substrate": "^2.0.0",
+    "@qiwi/substrate": "^2.0.2",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
@@ -53,7 +53,7 @@
     "@qiwi/npm-run-all": "^4.1.7",
     "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.13.0",
-    "c8": "^7.12.0",
+    "c8": "^7.13.0",
     "coveralls": "^3.1.1",
     "cpy-cli": "^4.2.0",
     "earljs": "^0.2.3",
@@ -66,7 +66,7 @@
     "prettier": "^2.8.4",
     "rimraf": "^4.1.2",
     "tempy": "^3.0.0",
-    "terser": "^5.16.3",
+    "terser": "^5.16.4",
     "ts-jest": "^29.0.5",
     "tsm": "^2.3.0",
     "typedoc": "^0.23.25",
