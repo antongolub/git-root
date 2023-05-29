@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url'
 import { expect } from 'earljs'
 import { suite } from 'uvu'
 
-import { gitRoot } from '../../../target/es6/index.js'
+import { gitRoot } from '@antongolub/git-root'
 
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
