@@ -1,3 +1,8 @@
+## [1.5.11](https://github.com/antongolub/git-root/compare/v1.5.10...v1.5.11) (2023-05-29)
+
+### Fixes & improvements
+* perf: deps revision ([b03b82c](https://github.com/antongolub/git-root/commit/b03b82c8ca286495eed9f576079ffe4f5db9ee52))
+
 ## [1.5.10](https://github.com/antongolub/git-root/compare/v1.5.9...v1.5.10) (2023-02-16)
 
 ### Fixes & improvements
