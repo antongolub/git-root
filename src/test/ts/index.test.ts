@@ -1,7 +1,7 @@
 import path from 'node:path'
 
 import { expect } from 'earljs'
-import fs from 'fs-extra'
+import * as fs from 'fs-extra'
 import { temporaryDirectory } from 'tempy'
 import { suite, Test } from 'uvu'
 
@@ -38,7 +38,7 @@ describe('gitRoot', (it) => {
     const temp1 = temporaryDirectory()
     const data = `gitdir: ${temp1}.git `
 
-    await fs.mkdir(path.join(temp1, '.git'))
+    await fs.mkdirp(path.join(temp1, '.git'))
     await fs.outputFile(path.join(temp0, '.git'), data, {
       encoding: 'utf8',
     })
