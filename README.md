@@ -38,7 +38,7 @@ const gitRoot2 = gitRoot('/defaults/to/process/cwd/', true)
 // sync too
 const gitRoot3 = gitRoot.sync()
 
-// `gitRootSync` is alias for `gitRoot.sync`
+// `gitRootSync` is an alias for `gitRoot.sync`
 const gitRoot4 = gitRootSync()
 ```
 

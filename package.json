@@ -52,10 +52,12 @@
     "uvu": "^0.5.6"
   },
   "keywords": [
+    "git",
+    "root",
     "git root",
     "git dir"
   ],
-  "author": "Anton Golub <mailbox@antongolub.ru>",
+  "author": "Anton Golub <antongolub@antongolub.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
