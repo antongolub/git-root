@@ -1,3 +1,8 @@
+## [1.5.12](https://github.com/antongolub/git-root/compare/v1.5.11...v1.5.12) (2023-06-01)
+
+### Fixes & improvements
+* fix: entries ([1d67e45](https://github.com/antongolub/git-root/commit/1d67e453f310d07ac314f596afb74fe26aebaf4e))
+
 ## [1.5.11](https://github.com/antongolub/git-root/compare/v1.5.10...v1.5.11) (2023-05-29)
 
 ### Fixes & improvements
