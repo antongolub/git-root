@@ -36,7 +36,7 @@
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^20.2.5",
-    "c8": "^7.14.0",
+    "c8": "^8.0.0",
     "concurrently": "^8.0.1",
     "esbuild": "^0.18.0",
     "esbuild-node-externals": "^1.7.0",
