@@ -1,3 +1,8 @@
+## [1.5.13](https://github.com/antongolub/git-root/compare/v1.5.12...v1.5.13) (2023-06-27)
+
+### Fixes & improvements
+* fix: deps revision ([dbcbeb3](https://github.com/antongolub/git-root/commit/dbcbeb30bafa02a9ca8b2369a1bd0980715f0a53))
+
 ## [1.5.12](https://github.com/antongolub/git-root/compare/v1.5.11...v1.5.12) (2023-06-01)
 
 ### Fixes & improvements
