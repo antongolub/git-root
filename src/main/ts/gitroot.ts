@@ -2,7 +2,9 @@ import fs from 'node:fs'
 import path from 'node:path'
 import util from 'node:util'
 
-import type { Extends, ICallable } from '@qiwi/substrate'
+type Extends<T, E, R1, R2> = T extends E ? R1 : R2
+
+type ICallable<A extends any[] = any[], R = any> = (...args: A) => R
 
 type Match = string | undefined
 
