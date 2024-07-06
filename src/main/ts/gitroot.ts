@@ -1,6 +1,5 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import util from 'node:util'
 
 type Extends<T, E, R1, R2> = T extends E ? R1 : R2
 
@@ -34,7 +33,7 @@ export const gitRoot: TGitRoot = <S>(
   cwd: string = process.cwd(),
   sync?: S,
 ) => {
-  const readFile = sync ? fs.readFileSync : util.promisify(fs.readFile)
+  const readFile: ICallable = sync ? fs.readFileSync : fs.promises.readFile
   const lStat = sync ? fs.lstatSync : fs.promises.lstat
 
   const cb = (dir?: string): any => {
