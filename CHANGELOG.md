@@ -1,3 +1,8 @@
+## [1.5.14](https://github.com/antongolub/git-root/compare/v1.5.13...v1.5.14) (2024-07-06)
+
+### Fixes & improvements
+* refactor: remove redundant `util.promisify` ([4e9fb99](https://github.com/antongolub/git-root/commit/4e9fb999931fb63b8c45409b0eefb7cda589a67c))
+
 ## [1.5.13](https://github.com/antongolub/git-root/compare/v1.5.12...v1.5.13) (2023-06-27)
 
 ### Fixes & improvements
