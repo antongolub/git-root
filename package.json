@@ -38,7 +38,7 @@
     "@types/node": "^20.14.10",
     "c8": "^10.1.2",
     "concurrently": "^8.2.2",
-    "esbuild": "^0.18.10",
+    "esbuild": "^0.23.0",
     "esbuild-node-externals": "^1.13.1",
     "eslint": "^8.43.0",
     "eslint-config-qiwi": "^2.1.3",
